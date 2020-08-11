@@ -1,0 +1,91 @@
+Configuration:
+  monitorInterval: 30
+  Properties:
+    Property:
+      - name: "log-path"
+        value: "logs"
+  Appenders:
+    Console:
+      name: console
+      target: SYSTEM_OUT
+      PatternLayout:
+        pattern: "[%d{ISO8601}] [%p] [%t] %c{1} %m%n"
+    RollingFile:
+      - name: debug-out
+        fileName: ${log-path}/debug.log
+        filePattern: ${log-path}/debug.log-%i
+        PatternLayout:
+          pattern: "[%d{ISO8601}] [%p] [%t] %c{1} %m%n"
+        Policies:
+          SizeBasedTriggeringPolicy:
+            size: 262144KB
+        DefaultRolloverStrategy:
+          max: 3
+        Filters:
+          ThresholdFilter:
+            - level: DEBUG
+            - level: INFO
+              onMatch: DENY
+              onMismatch: NEUTRAL
+      - name: info-out
+        fileName: ${log-path}/info.log
+        filePattern: ${log-path}/info.log-%i
+        PatternLayout:
+          pattern: "[%d{ISO8601}] [%p] [%t] %c{1} %m%n"
+        Policies:
+          SizeBasedTriggeringPolicy:
+            size: 262144KB
+        DefaultRolloverStrategy:
+          max: 3
+        Filters:
+          ThresholdFilter:
+            - level: INFO
+            - level: WARN
+              onMatch: DENY
+              onMismatch: NEUTRAL
+      - name: warn-out
+        fileName: ${log-path}/warn.log
+        filePattern: ${log-path}/warn.log-%i
+        PatternLayout:
+          pattern: "[%d{ISO8601}] [%p] [%t] %c{1} %m%n"
+        Policies:
+          SizeBasedTriggeringPolicy:
+            size: 262144KB
+        DefaultRolloverStrategy:
+          max: 3
+        Filters:
+          ThresholdFilter:
+            - level: WARN
+            - level: ERROR
+              onMatch: DENY
+              onMismatch: NEUTRAL
+      - name: error-out
+        fileName: ${log-path}/error.log
+        filePattern: ${log-path}/error.log-%i
+        PatternLayout:
+          pattern: "[%d{ISO8601}] [%p] [%t] %c{1} %m%n"
+        Policies:
+          SizeBasedTriggeringPolicy:
+            size: 262144KB
+        DefaultRolloverStrategy:
+          max: 3
+        Filters:
+          ThresholdFilter:
+            - level: ERROR
+  Loggers:
+    Logger:
+      - name: org.eclipse.jetty
+        level: warn
+      - name: org.apache.http
+        level: info
+      - name: org.springframework
+        level: info
+      - name: mandrews.magnificent.controller
+        level: debug
+    Root:
+      AppenderRef:
+        - ref: console
+        - ref: debug-out
+        - ref: info-out
+        - ref: warn-out
+        - ref: error-out

@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<databaseChangeLog
+        xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog
+         http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.10.xsd"
+        logicalFilePath="database/changesets/001-create-initial-schema.xml">
+
+    <changeSet id="1" author="Michael Andrews">
+
+        <comment>Create initial db schema</comment>
+
+        <createTable tableName="development" remarks="Stores all developments">
+
+            <column name="id" type="bigint" autoIncrement="true">
+                <constraints primaryKey="true" nullable="false"/>
+            </column>
+
+            <column name="level" type="tinyint unsigned">
+                <constraints nullable="false"/>
+            </column>
+
+            <column name="reward_colour" type="varchar(64)">
+                <constraints nullable="false"/>
+            </column>
+
+            <column name="influence_points" type="tinyint unsigned" defaultValueNumeric="0">
+                <constraints nullable="false"/>
+            </column>
+
+            <column name="cost_black" type="tinyint unsigned" defaultValueNumeric="0">
+                <constraints nullable="false"/>
+            </column>
+
+            <column name="cost_blue" type="tinyint unsigned" defaultValueNumeric="0">
+                <constraints nullable="false"/>
+            </column>
+
+            <column name="cost_green" type="tinyint unsigned" defaultValueNumeric="0">
+                <constraints nullable="false"/>
+            </column>
+
+            <column name="cost_red" type="tinyint unsigned" defaultValueNumeric="0">
+                <constraints nullable="false"/>
+            </column>
+
+            <column name="cost_white" type="tinyint unsigned" defaultValueNumeric="0">
+                <constraints nullable="false"/>
+            </column>
+
+        </createTable>
+
+        <createTable tableName="noble" remarks="Stores all nobles">
+
+            <column name="id" type="int" autoIncrement="true">
+                <constraints primaryKey="true" nullable="false"/>
+            </column>
+
+            <column name="influence_points" type="tinyint unsigned" defaultValueNumeric="0">
+                <constraints nullable="false"/>
+            </column>
+
+            <column name="cost_black" type="tinyint unsigned" defaultValueNumeric="0">
+                <constraints nullable="false"/>
+            </column>
+
+            <column name="cost_blue" type="tinyint unsigned" defaultValueNumeric="0">
+                <constraints nullable="false"/>
+            </column>
+
+            <column name="cost_green" type="tinyint unsigned" defaultValueNumeric="0">
+                <constraints nullable="false"/>
+            </column>
+
+            <column name="cost_red" type="tinyint unsigned" defaultValueNumeric="0">
+                <constraints nullable="false"/>
+            </column>
+
+            <column name="cost_white" type="tinyint unsigned" defaultValueNumeric="0">
+                <constraints nullable="false"/>
+            </column>
+
+        </createTable>
+
+    </changeSet>
+
+</databaseChangeLog>

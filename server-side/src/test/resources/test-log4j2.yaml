@@ -1,0 +1,12 @@
+Configuration:
+  monitorInterval: 30
+  Appenders:
+    Console:
+      name: console
+      target: SYSTEM_OUT
+      PatternLayout:
+        pattern: "[%d{ISO8601}] [%p] [%t] %c{1} %m%n"
+  Loggers:
+    Root:
+      AppenderRef:
+        - ref: console
