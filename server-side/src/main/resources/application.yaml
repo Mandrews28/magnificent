@@ -1,0 +1,46 @@
+spring:
+  application:
+    name: magnificent
+
+  datasource:
+    username: ${DB_USERNAME}
+    password: ${DB_PASSWORD}
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    url: jdbc:mysql://${DB_HOSTNAME}/${DB_SCHEMA:magnificent}
+
+  liquibase:
+    change-log: classpath:database/schema.xml
+
+  jpa:
+    hibernate:
+      ddl-auto: none
+    open-in-view: false
+    properties:
+      hibernate:
+        auto_quote_keyword: true
+
+server:
+  port: ${HOST_PORT:8080}
+  error:
+    include-message: always
+
+management:
+  endpoints:
+    web:
+      base-path: /metadata
+      exposure:
+        include: health,info,liquibase
+
+  endpoint:
+    health:
+      show-details: always
+
+  health:
+    diskspace:
+      enabled: false
+
+logging:
+  file:
+    name: logs/info.log
+  level:
+    root: info
