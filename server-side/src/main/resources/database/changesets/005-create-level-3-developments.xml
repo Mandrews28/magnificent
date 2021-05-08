@@ -1,0 +1,186 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<databaseChangeLog
+        xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog
+         http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.10.xsd"
+        logicalFilePath="database/changesets/005-create-level-3-developments.xml">
+
+    <changeSet id="5" author="Michael Andrews">
+
+        <comment>Create level 3 developments</comment>
+
+        <insert tableName="development">
+            <column name="level" valueNumeric="3"/>
+            <column name="reward_colour" value="black"/>
+            <column name="influence_points" valueNumeric="3"/>
+            <column name="cost_blue" valueNumeric="3"/>
+            <column name="cost_green" valueNumeric="5"/>
+            <column name="cost_red" valueNumeric="3"/>
+            <column name="cost_white" valueNumeric="3"/>
+        </insert>
+
+        <insert tableName="development">
+            <column name="level" valueNumeric="3"/>
+            <column name="reward_colour" value="black"/>
+            <column name="influence_points" valueNumeric="4"/>
+            <column name="cost_red" valueNumeric="7"/>
+        </insert>
+
+        <insert tableName="development">
+            <column name="level" valueNumeric="3"/>
+            <column name="reward_colour" value="black"/>
+            <column name="influence_points" valueNumeric="4"/>
+            <column name="cost_black" valueNumeric="3"/>
+            <column name="cost_green" valueNumeric="3"/>
+            <column name="cost_red" valueNumeric="6"/>
+        </insert>
+
+        <insert tableName="development">
+            <column name="level" valueNumeric="3"/>
+            <column name="reward_colour" value="black"/>
+            <column name="influence_points" valueNumeric="5"/>
+            <column name="cost_black" valueNumeric="3"/>
+            <column name="cost_red" valueNumeric="7"/>
+        </insert>
+
+        <insert tableName="development">
+            <column name="level" valueNumeric="3"/>
+            <column name="reward_colour" value="blue"/>
+            <column name="influence_points" valueNumeric="3"/>
+            <column name="cost_black" valueNumeric="5"/>
+            <column name="cost_green" valueNumeric="3"/>
+            <column name="cost_red" valueNumeric="3"/>
+            <column name="cost_white" valueNumeric="3"/>
+        </insert>
+
+        <insert tableName="development">
+            <column name="level" valueNumeric="3"/>
+            <column name="reward_colour" value="blue"/>
+            <column name="influence_points" valueNumeric="4"/>
+            <column name="cost_white" valueNumeric="7"/>
+        </insert>
+
+        <insert tableName="development">
+            <column name="level" valueNumeric="3"/>
+            <column name="reward_colour" value="blue"/>
+            <column name="influence_points" valueNumeric="4"/>
+            <column name="cost_black" valueNumeric="3"/>
+            <column name="cost_blue" valueNumeric="3"/>
+            <column name="cost_white" valueNumeric="6"/>
+        </insert>
+
+        <insert tableName="development">
+            <column name="level" valueNumeric="3"/>
+            <column name="reward_colour" value="blue"/>
+            <column name="influence_points" valueNumeric="5"/>
+            <column name="cost_blue" valueNumeric="3"/>
+            <column name="cost_white" valueNumeric="7"/>
+        </insert>
+
+        <insert tableName="development">
+            <column name="level" valueNumeric="3"/>
+            <column name="reward_colour" value="white"/>
+            <column name="influence_points" valueNumeric="3"/>
+            <column name="cost_black" valueNumeric="3"/>
+            <column name="cost_blue" valueNumeric="3"/>
+            <column name="cost_green" valueNumeric="3"/>
+            <column name="cost_red" valueNumeric="5"/>
+        </insert>
+
+        <insert tableName="development">
+            <column name="level" valueNumeric="3"/>
+            <column name="reward_colour" value="white"/>
+            <column name="influence_points" valueNumeric="4"/>
+            <column name="cost_black" valueNumeric="7"/>
+        </insert>
+
+        <insert tableName="development">
+            <column name="level" valueNumeric="3"/>
+            <column name="reward_colour" value="white"/>
+            <column name="influence_points" valueNumeric="4"/>
+            <column name="cost_black" valueNumeric="6"/>
+            <column name="cost_red" valueNumeric="3"/>
+            <column name="cost_white" valueNumeric="3"/>
+        </insert>
+
+        <insert tableName="development">
+            <column name="level" valueNumeric="3"/>
+            <column name="reward_colour" value="white"/>
+            <column name="influence_points" valueNumeric="5"/>
+            <column name="cost_black" valueNumeric="7"/>
+            <column name="cost_white" valueNumeric="3"/>
+        </insert>
+
+        <insert tableName="development">
+            <column name="level" valueNumeric="3"/>
+            <column name="reward_colour" value="green"/>
+            <column name="influence_points" valueNumeric="3"/>
+            <column name="cost_black" valueNumeric="3"/>
+            <column name="cost_blue" valueNumeric="3"/>
+            <column name="cost_red" valueNumeric="3"/>
+            <column name="cost_white" valueNumeric="5"/>
+        </insert>
+
+        <insert tableName="development">
+            <column name="level" valueNumeric="3"/>
+            <column name="reward_colour" value="green"/>
+            <column name="influence_points" valueNumeric="4"/>
+            <column name="cost_blue" valueNumeric="7"/>
+        </insert>
+
+        <insert tableName="development">
+            <column name="level" valueNumeric="3"/>
+            <column name="reward_colour" value="green"/>
+            <column name="influence_points" valueNumeric="4"/>
+            <column name="cost_blue" valueNumeric="6"/>
+            <column name="cost_green" valueNumeric="3"/>
+            <column name="cost_white" valueNumeric="3"/>
+        </insert>
+
+        <insert tableName="development">
+            <column name="level" valueNumeric="3"/>
+            <column name="reward_colour" value="green"/>
+            <column name="influence_points" valueNumeric="5"/>
+            <column name="cost_blue" valueNumeric="7"/>
+            <column name="cost_green" valueNumeric="3"/>
+        </insert>
+
+        <insert tableName="development">
+            <column name="level" valueNumeric="3"/>
+            <column name="reward_colour" value="red"/>
+            <column name="influence_points" valueNumeric="3"/>
+            <column name="cost_black" valueNumeric="3"/>
+            <column name="cost_blue" valueNumeric="5"/>
+            <column name="cost_green" valueNumeric="3"/>
+            <column name="cost_white" valueNumeric="3"/>
+        </insert>
+
+        <insert tableName="development">
+            <column name="level" valueNumeric="3"/>
+            <column name="reward_colour" value="red"/>
+            <column name="influence_points" valueNumeric="4"/>
+            <column name="cost_green" valueNumeric="7"/>
+        </insert>
+
+        <insert tableName="development">
+            <column name="level" valueNumeric="3"/>
+            <column name="reward_colour" value="red"/>
+            <column name="influence_points" valueNumeric="4"/>
+            <column name="cost_blue" valueNumeric="3"/>
+            <column name="cost_green" valueNumeric="6"/>
+            <column name="cost_red" valueNumeric="3"/>
+        </insert>
+
+        <insert tableName="development">
+            <column name="level" valueNumeric="3"/>
+            <column name="reward_colour" value="red"/>
+            <column name="influence_points" valueNumeric="5"/>
+            <column name="cost_green" valueNumeric="7"/>
+            <column name="cost_red" valueNumeric="3"/>
+        </insert>
+
+    </changeSet>
+
+</databaseChangeLog>

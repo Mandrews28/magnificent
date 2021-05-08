@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<databaseChangeLog
+        xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog
+         http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.10.xsd"
+        logicalFilePath="database/changesets/006-create-nobles.xml">
+
+    <changeSet id="6" author="Michael Andrews">
+
+        <comment>Create nobles</comment>
+
+        <insert tableName="noble">
+            <column name="cost_black" valueNumeric="4"/>
+            <column name="cost_red" valueNumeric="4"/>
+        </insert>
+
+        <insert tableName="noble">
+            <column name="cost_black" valueNumeric="4"/>
+            <column name="cost_white" valueNumeric="4"/>
+        </insert>
+
+        <insert tableName="noble">
+            <column name="cost_blue" valueNumeric="4"/>
+            <column name="cost_green" valueNumeric="4"/>
+        </insert>
+
+        <insert tableName="noble">
+            <column name="cost_blue" valueNumeric="4"/>
+            <column name="cost_white" valueNumeric="4"/>
+        </insert>
+
+        <insert tableName="noble">
+            <column name="cost_green" valueNumeric="4"/>
+            <column name="cost_red" valueNumeric="4"/>
+        </insert>
+
+        <insert tableName="noble">
+            <column name="cost_black" valueNumeric="3"/>
+            <column name="cost_blue" valueNumeric="3"/>
+            <column name="cost_white" valueNumeric="3"/>
+        </insert>
+
+        <insert tableName="noble">
+            <column name="cost_black" valueNumeric="3"/>
+            <column name="cost_green" valueNumeric="3"/>
+            <column name="cost_red" valueNumeric="3"/>
+        </insert>
+
+        <insert tableName="noble">
+            <column name="cost_black" valueNumeric="3"/>
+            <column name="cost_red" valueNumeric="3"/>
+            <column name="cost_white" valueNumeric="3"/>
+        </insert>
+
+        <insert tableName="noble">
+            <column name="cost_blue" valueNumeric="3"/>
+            <column name="cost_green" valueNumeric="3"/>
+            <column name="cost_red" valueNumeric="3"/>
+        </insert>
+
+        <insert tableName="noble">
+            <column name="cost_blue" valueNumeric="3"/>
+            <column name="cost_green" valueNumeric="3"/>
+            <column name="cost_white" valueNumeric="3"/>
+        </insert>
+
+    </changeSet>
+
+</databaseChangeLog>

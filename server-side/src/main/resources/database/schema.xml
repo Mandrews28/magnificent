@@ -8,6 +8,10 @@
         logicalFilePath="database/schema.xml">
 
     <include file="changesets/001-create-initial-schema.xml" relativeToChangelogFile="true"/>
-    <include file="changesets/002-create-player-table.xml" relativeToChangelogFile="true"/>
+    <include file="changesets/002-create-user-table.xml" relativeToChangelogFile="true"/>
+    <include file="changesets/003-create-level-1-developments.xml" relativeToChangelogFile="true"/>
+    <include file="changesets/004-create-level-2-developments.xml" relativeToChangelogFile="true"/>
+    <include file="changesets/005-create-level-3-developments.xml" relativeToChangelogFile="true"/>
+    <include file="changesets/006-create-nobles.xml" relativeToChangelogFile="true"/>
 
 </databaseChangeLog>

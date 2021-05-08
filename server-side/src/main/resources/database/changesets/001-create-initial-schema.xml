@@ -57,7 +57,7 @@
                 <constraints primaryKey="true" nullable="false"/>
             </column>
 
-            <column name="influence_points" type="tinyint unsigned" defaultValueNumeric="0">
+            <column name="influence_points" type="tinyint unsigned" defaultValueNumeric="3">
                 <constraints nullable="false"/>
             </column>
 

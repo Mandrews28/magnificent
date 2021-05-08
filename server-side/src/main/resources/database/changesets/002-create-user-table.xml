@@ -5,13 +5,13 @@
         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
         xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog
          http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.10.xsd"
-        logicalFilePath="database/changesets/002-create-player-table.xml">
+        logicalFilePath="database/changesets/002-create-user-table.xml">
 
     <changeSet id="2" author="Michael Andrews">
 
-        <comment>Create player schema</comment>
+        <comment>Create user schema</comment>
 
-        <createTable tableName="player" remarks="Stores all player details">
+        <createTable tableName="user" remarks="Stores all user details">
 
             <column name="id" type="bigint" autoIncrement="true">
                 <constraints primaryKey="true" nullable="false"/>
