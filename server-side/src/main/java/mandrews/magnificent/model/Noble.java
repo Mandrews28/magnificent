@@ -8,6 +8,7 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
+import java.util.Objects;
 
 @Entity
 @Table(name = "noble")
@@ -69,5 +70,23 @@ public class Noble {
 
     public int getCostWhite() {
         return costWhite;
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        Noble noble = (Noble) o;
+        return influencePoints == noble.influencePoints &&
+                costBlack == noble.costBlack &&
+                costBlue == noble.costBlue &&
+                costGreen == noble.costGreen &&
+                costRed == noble.costRed &&
+                costWhite == noble.costWhite;
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(influencePoints, costBlack, costBlue, costGreen, costRed, costWhite);
     }
 }

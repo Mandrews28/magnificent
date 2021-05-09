@@ -3,6 +3,7 @@ package mandrews.magnificent.controller;
 import com.google.gson.Gson;
 import mandrews.magnificent.dto.GameInputDTO;
 import mandrews.magnificent.dto.InitialGameStateDTO;
+import mandrews.magnificent.model.Chips;
 import mandrews.magnificent.service.GameService;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
@@ -46,7 +47,8 @@ class GameControllerTest {
         GameInputDTO inputDTO = new GameInputDTO(players);
 
         when(gameService.createGame(any(GameInputDTO.class)))
-                .thenReturn(new InitialGameStateDTO(inputDTO));
+                .thenReturn(new InitialGameStateDTO(players,
+                        new Chips()));
 
         String json = new Gson().toJson(inputDTO);
 
@@ -57,6 +59,8 @@ class GameControllerTest {
                 .andExpect(jsonPath("playerOrder[0]").value(PLAYER_1))
                 .andExpect(jsonPath("playerOrder[1]").value(PLAYER_2))
                 .andExpect(jsonPath("playerOrder[2]").value(PLAYER_3))
+                .andExpect(jsonPath("remainingChips").exists())
+                .andExpect(jsonPath("nobles").exists())
         ;
 
     }
