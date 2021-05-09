@@ -5,7 +5,7 @@ import io.swagger.annotations.ApiOperation;
 import io.swagger.annotations.ApiResponse;
 import io.swagger.annotations.ResponseHeader;
 import mandrews.magnificent.dto.GameInputDTO;
-import mandrews.magnificent.dto.GameStateDTO;
+import mandrews.magnificent.dto.InitialGameStateDTO;
 import mandrews.magnificent.service.GameService;
 import org.springframework.http.HttpStatus;
 import org.springframework.validation.annotation.Validated;
@@ -33,7 +33,8 @@ public class GameController {
             @ResponseHeader(name = "Content-Length")}, message = "Created")
     @PostMapping("/create")
     @ResponseStatus(code = HttpStatus.CREATED)
-    public @ResponseBody GameStateDTO createGame(
+    public @ResponseBody
+    InitialGameStateDTO createGame(
             @Validated @RequestBody GameInputDTO players) {
         try {
             return gameService.createGame(players);

@@ -1,7 +1,7 @@
 package mandrews.magnificent.service;
 
 import mandrews.magnificent.dto.GameInputDTO;
-import mandrews.magnificent.dto.GameStateDTO;
+import mandrews.magnificent.dto.InitialGameStateDTO;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -10,8 +10,9 @@ import java.util.List;
 public class GameService {
     public GameService() {}
 
-//    public GameStateDTO createGame(List<String> players) {
-    public GameStateDTO createGame(GameInputDTO players) {
-        return new GameStateDTO(players);
+    public InitialGameStateDTO createGame(GameInputDTO gameInput) {
+        List<String> shuffledPlayers = Shuffle.playerOrder(gameInput.getPlayers());
+        System.out.println(shuffledPlayers);
+        return new InitialGameStateDTO(gameInput);
     }
 }
