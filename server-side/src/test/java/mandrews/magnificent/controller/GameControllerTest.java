@@ -4,6 +4,7 @@ import com.google.gson.Gson;
 import mandrews.magnificent.dto.GameInputDTO;
 import mandrews.magnificent.dto.InitialGameStateDTO;
 import mandrews.magnificent.model.Chips;
+import mandrews.magnificent.model.Developments;
 import mandrews.magnificent.service.GameService;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
@@ -17,6 +18,7 @@ import org.springframework.test.web.servlet.request.MockMvcRequestBuilders;
 import org.springframework.test.web.servlet.result.MockMvcResultMatchers;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 
 import static org.mockito.ArgumentMatchers.any;
@@ -40,15 +42,16 @@ class GameControllerTest {
 
     @Test
     void given3PlayerRequest_whenCreateGame_thenGameIsReturnedSuccessfully() throws Exception {
-        List<String> players = new ArrayList<>();
-        players.add(PLAYER_1);
-        players.add(PLAYER_2);
-        players.add(PLAYER_3);
+        List<String> players = Arrays.asList(PLAYER_1, PLAYER_2, PLAYER_3);
         GameInputDTO inputDTO = new GameInputDTO(players);
 
         when(gameService.createGame(any(GameInputDTO.class)))
                 .thenReturn(new InitialGameStateDTO(players,
-                        new Chips()));
+                        new Chips(), new ArrayList<>(),
+                        new Developments(
+                                new ArrayList<>(), new ArrayList<>(), new ArrayList<>(),
+                                new ArrayList<>(), new ArrayList<>(), new ArrayList<>())
+                ));
 
         String json = new Gson().toJson(inputDTO);
 
@@ -61,6 +64,12 @@ class GameControllerTest {
                 .andExpect(jsonPath("playerOrder[2]").value(PLAYER_3))
                 .andExpect(jsonPath("remainingChips").exists())
                 .andExpect(jsonPath("nobles").exists())
+                .andExpect(jsonPath("developments.level1Developments").exists())
+                .andExpect(jsonPath("developments.level2Developments").exists())
+                .andExpect(jsonPath("developments.level3Developments").exists())
+                .andExpect(jsonPath("developments.hiddenLevel1Developments").exists())
+                .andExpect(jsonPath("developments.hiddenLevel2Developments").exists())
+                .andExpect(jsonPath("developments.hiddenLevel3Developments").exists())
         ;
 
     }

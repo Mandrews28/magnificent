@@ -24,7 +24,7 @@ public class Development {
 
     @NonNull
     @Column(name = "reward_colour")
-    private Chip rewardChip;
+    private String rewardChipColour;
 
     @NonNull
     @Column(name = "influence_points")
@@ -45,10 +45,10 @@ public class Development {
     @NonNull
     private int costWhite;
 
-    public Development(int level, @NonNull Chip rewardChip, int influencePoints,
+    public Development(int level, @NonNull String rewardChipColour, int influencePoints,
                        int costBlack, int costBlue, int costGreen, int costRed, int costWhite) {
         this.level = level;
-        this.rewardChip = rewardChip;
+        this.rewardChipColour = rewardChipColour;
         this.influencePoints = influencePoints;
         this.costBlack = costBlack;
         this.costBlue = costBlue;
@@ -57,15 +57,23 @@ public class Development {
         this.costWhite = costWhite;
     }
 
+    public Development(int level, Chip rewardChip, int influencePoints,
+                       int costBlack, int costBlue, int costGreen, int costRed, int costWhite) {
+        this(level, rewardChip.getColour(), influencePoints, costBlack, costBlue, costGreen, costRed, costWhite);
+    }
+
     public Development() {}
+
+    public long getId() {
+        return id;
+    }
 
     public int getLevel() {
         return level;
     }
 
-    @NonNull
-    public Chip getRewardChip() {
-        return rewardChip;
+    public Chip getRewardChipColour() {
+        return Chip.get(rewardChipColour);
     }
 
     public int getInfluencePoints() {
