@@ -31,12 +31,17 @@ public class GameService {
 
     public InitialGameStateDTO createGame(GameInputDTO gameInput) {
         List<String> players = gameInput.getPlayers();
+        int numOfPlayers = players.size();
+        if (numOfPlayers < 2 || numOfPlayers > 4) {
+            throw new IllegalArgumentException("Invalid number of players");
+        }
+
         List<String> shuffledPlayers = Randomise.randomiseObjectOrder(players);
         System.out.println(shuffledPlayers);
 
-        Chips remainingChips = getChipAllocation(players.size());
+        Chips remainingChips = getChipAllocation(numOfPlayers);
 
-        List<Noble> nobles = getNobles(players.size() + 1);
+        List<Noble> nobles = getNobles(numOfPlayers + 1);
 
         Developments developments = getDevelopments();
 

@@ -19,6 +19,7 @@ import org.springframework.test.web.servlet.result.MockMvcResultMatchers;
 
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.Collections;
 import java.util.List;
 
 import static org.mockito.ArgumentMatchers.any;
@@ -72,6 +73,22 @@ class GameControllerTest {
                 .andExpect(jsonPath("developments.hiddenLevel3Developments").exists())
         ;
 
+    }
+
+    @Test
+    void given1PlayerRequest_whenCreateGame_thenBadRequestIsReturned() throws Exception {
+        List<String> players = Collections.singletonList(PLAYER_1);
+        GameInputDTO inputDTO = new GameInputDTO(players);
+
+        when(gameService.createGame(any(GameInputDTO.class)))
+                .thenThrow(IllegalArgumentException.class);
+
+        String json = new Gson().toJson(inputDTO);
+
+        mockMvc.perform(MockMvcRequestBuilders.post("/game/create")
+                .contentType(MediaType.APPLICATION_JSON)
+                .content(json))
+                .andExpect(MockMvcResultMatchers.status().isBadRequest());
     }
 
 }

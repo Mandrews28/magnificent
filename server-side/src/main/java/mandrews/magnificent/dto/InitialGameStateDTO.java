@@ -1,7 +1,6 @@
 package mandrews.magnificent.dto;
 
 import mandrews.magnificent.model.Chips;
-import mandrews.magnificent.model.Development;
 import mandrews.magnificent.model.Developments;
 import mandrews.magnificent.model.Noble;
 

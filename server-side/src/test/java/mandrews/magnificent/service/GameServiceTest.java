@@ -13,12 +13,13 @@ import org.junit.jupiter.api.extension.ExtendWith;
 import org.mockito.Mock;
 import org.mockito.junit.jupiter.MockitoExtension;
 
-import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.Collections;
 import java.util.List;
 
 import static org.junit.jupiter.api.Assertions.assertAll;
 import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertThrows;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 import static org.mockito.ArgumentMatchers.anyInt;
 import static org.mockito.Mockito.when;
@@ -30,6 +31,7 @@ class GameServiceTest {
     private static final String PLAYER_2 = "player2";
     private static final String PLAYER_3 = "player3";
     private static final String PLAYER_4 = "player4";
+    private static final String PLAYER_5 = "player5";
 
     @Mock
     private DevelopmentRepository developmentRepository;
@@ -121,6 +123,22 @@ class GameServiceTest {
                 () -> assertEquals(chips, initialGameState.getRemainingChips()),
                 () -> assertEquals(5, initialGameState.getNobles().size())
         );
+    }
+
+    @Test
+    void given1PlayerRequest_whenCreateGame_thenIllegalArgumentExceptionIsThrown() {
+        List<String> players = Collections.singletonList(PLAYER_1);
+        GameInputDTO inputDTO = new GameInputDTO(players);
+
+        assertThrows(IllegalArgumentException.class, () -> gameService.createGame(inputDTO));
+    }
+
+    @Test
+    void given5PlayerRequest_whenCreateGame_thenIllegalArgumentExceptionIsThrown() {
+        List<String> players = Arrays.asList(PLAYER_1, PLAYER_2, PLAYER_3, PLAYER_4, PLAYER_5);
+        GameInputDTO inputDTO = new GameInputDTO(players);
+
+        assertThrows(IllegalArgumentException.class, () -> gameService.createGame(inputDTO));
     }
 
     @Mock private Noble noble1;
